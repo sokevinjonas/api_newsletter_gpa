@@ -6,12 +6,13 @@ use App\Models\Lead;
 use App\Mail\WelcomeLeadMail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendWelcomeEmailJob implements ShouldQueue
 {
-    use Queueable;
+    use Queueable, SerializesModels;
 
     protected Lead $lead;
     /**
