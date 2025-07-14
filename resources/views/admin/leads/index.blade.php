@@ -120,9 +120,8 @@
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <span class="text-muted">{{ $lead->created_at->format('d/m/Y') }}</span>
-                                    <br>
-                                    <small class="text-muted">{{ $lead->created_at->format('H:i') }}</small>
+                                    <span class="text-muted">{{ \Illuminate\Support\Carbon::parse($lead->created_at)->format('d/m/Y') }}</span>
+                                    <small class="text-muted">{{ \Illuminate\Support\Carbon::parse($lead->created_at)->format('H:i') }}</small>
                                 </td>
                                 <td class="align-middle">
                                     @if($lead->sent_at)
@@ -131,7 +130,7 @@
                                             Envoyé
                                         </span>
                                         <br>
-                                        <small class="text-muted">{{ $lead->sent_at->format('d/m/Y H:i') }}</small>
+                                        <small class="text-muted">{{ \Illuminate\Support\Carbon::parse($lead->sent_at)->format('d/m/Y H:i') }}</small>
                                     @else
                                         <span class="badge bg-warning">
                                             <i class="fas fa-clock me-1"></i>
